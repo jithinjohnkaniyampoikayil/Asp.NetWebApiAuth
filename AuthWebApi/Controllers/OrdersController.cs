@@ -5,20 +5,20 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace AuthWebApi.Controllers
+namespace AuthWebApi.Controller
 {
     [RoutePrefix("api/Orders")]
     public class OrdersController : ApiController
     {
         [Authorize]
         [Route("")]
+        [HttpGet]
         public IHttpActionResult Get()
         {
             return Ok(Order.CreateOrders());
         }
 
     }
-
 
     public class Order
     {
@@ -41,4 +41,5 @@ namespace AuthWebApi.Controllers
             return OrderList;
         }
     }
+
 }
